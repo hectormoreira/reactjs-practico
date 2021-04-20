@@ -1,7 +1,7 @@
 # Curso Práctico de React JS
 Notas y repo del [Curso Práctico de React JS en Platzi](https://platzi.com/clases/react-ejs/)
 
-Proyecto: Platzi video
+**Proyecto**: Platzi video
 
 ### Dependencias
 ```bash
@@ -11,7 +11,7 @@ npm install webpack webpack-cli html-webpack-plugin html-loader --save-dev
 npm install webpack-dev-server --save-dev
 npm install mini-css-extract-plugin css-loader node-sass sass-loader --save-dev
 npm install eslint babel-eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y --save-dev
-
+npm install file-loader --save-dev
 ```
 
 - El **Git Ignore** es un archivo que nos permite definir qué archivos NO queremos publicar en nuestros repositorios. Solo debemos crear el archivo `.gitignore` y escribir los nombres de los archivos y/o carpetas que no queremos publicar.
