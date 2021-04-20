@@ -1,7 +1,7 @@
 # Curso Práctico de React JS
 Notas y repo del [Curso Práctico de React JS en Platzi](https://platzi.com/clases/react-ejs/)
 
-**Proyecto**: Platzi video
+**Proyecto**: [Platzi video - GitHub pages](https://hectormoreira.github.io/reactjs-practico/dist/)
 
 ### Dependencias
 ```bash
