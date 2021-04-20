@@ -12,12 +12,74 @@ npm install webpack-dev-server --save-dev
 npm install mini-css-extract-plugin css-loader node-sass sass-loader --save-dev
 npm install eslint babel-eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y --save-dev
 npm install file-loader --save-dev
+npm install prop-types --save
+
+```
+
+Fake API
+```bash
+npm install json-server -g
+json-server initialState.json
 ```
 
 - El **Git Ignore** es un archivo que nos permite definir qué archivos NO queremos publicar en nuestros repositorios. Solo debemos crear el archivo `.gitignore` y escribir los nombres de los archivos y/o carpetas que no queremos publicar.
 - Los linters como **ESLint** son herramientas que nos ayudan a seguir buenas prácticas o guías de estilo de nuestro código.
 Se encargan de revisar el código que escribimos para indicarnos dónde tenemos errores o posibles errores. En algunos casos también pueden solucionar los errores automáticamente. De esta manera podemos solucionar los errores incluso antes de que sucedan.
-Instalación de ESLint:
+
+## React Hooks
+Los React Hooks son una característica de React que tenemos disponible a partir de la versión 16.8. Nos permiten agregar estado y ciclo de vida a nuestros componentes creados como funciones.
+
+El Hook useState nos devuelve un array con dos elementos: la primera posición es el valor de nuestro estado, la segunda es una función que nos permite actualizar ese valor.
+
+El argumento que enviamos a esta función es el valor por defecto de nuestro estado (initial state).
+```jsx
+import React, { useState } from 'react';
+
+const Component = () => {
+  const [name, setName] = useState('Nombre por defecto');
+
+  return <div>{name}</div>;
+}
+```
+El Hook useEffect nos permite ejecutar código cuando se monta, desmonta o actualiza nuestro componente.
+
+El primer argumento que le enviamos a useEffect es una función que se ejecutará cuando React monte o actualice el componente. Esta función puede devolver otra función que se ejecutará cuando el componente se desmonte.
+
+El segundo argumento es un array donde podemos especificar qué propiedades deben cambiar para que React vuelva a llamar nuestro código. Si el componente actualiza pero estas props no cambian, la función no se ejecutará.
+
+Por defecto, cuando no enviamos un segundo argumento, React ejecutará la función de useEffect cada vez que el componente o sus componentes padres actualicen. En cambio, si enviamos un array vacío, esta función solo se ejecutará al montar o desmontar el componente.
+```jsx
+import React, { useState, useEffect } from 'react';
+
+const Component = () => {
+  const [name, setName] = useState('Nombre por defecto');
+
+  useEffect(() => {
+    document.title = name;
+    return () => {
+      document.title = 'el componente se desmontó';
+    };
+  }, [name]);
+
+  return <div>{name}</div>;
+}
+```
+## Custom Hooks
+React nos permite crear nuestros propios Hooks. Solo debemos seguir algunas convenciones:
+
+Los hooks siempre deben empezar con la palabra `use`: `useAPI`, `useMovies`, `useWhatever`.
+Si nuestro custom hook nos permite consumir/interactuar con dos elementos (por ejemplo, title y setTitle), nuestro hook debe devolver un array.
+Si nuestro custom hook nos permite consumir/interactuar con tres o más elementos (por ejemplo, name, setName, lastName, setLastName, etc.), nuestro hook debe devolver un objeto.
+
+## PropTypes
+Son una propiedad de nuestros componentes que nos permiten especificar qué tipo de elementos son nuestras props: arrays, strings, números, etc. `npm install prop-types --save`
+
+## React DevTools
+Es una herramienta muy parecida al Inspector de Elementos. Nos permite visualizar, analizar e interactuar con nuestros componentes de React desde el navegador.
+
+Encuentra más información sobre está herramienta en: [github.com/facebook/react-devtools](github.com/facebook/react-devtools).
+
+
 
 
 ## Conceptos previos
